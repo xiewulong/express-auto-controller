@@ -1,0 +1,28 @@
+{
+  "name": "express-auto-controller",
+  "version": "0.0.1",
+  "description": "express auto controller",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiewulong/express-auto-controller.git"
+  },
+  "keywords": [
+    "express",
+    "auto",
+    "controller"
+  ],
+  "author": {
+    "name": "xiewulong",
+    "email": "xiewulong@vip.qq.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xiewulong/express-auto-controller/issues"
+  },
+  "homepage": "https://github.com/xiewulong/express-auto-controller#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "morgan": "^1.8.1"
+  }
+}
