@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "express auto controller",
   "main": "index.js",
+  "scripts": {
+    "test": "node ./sample/app.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xiewulong/express-auto-controller.git"
