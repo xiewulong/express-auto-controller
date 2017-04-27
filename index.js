@@ -92,28 +92,29 @@ autoController.prototype.recurse = function(parents = []) {
 	let dirs = [];
 	let files = [];
 
-	fs.readdirSync(dir).map((file) => {
+	fs.readdirSync(dir).forEach((file) => {
 		let _file = path.join(dir, file);
 		let stat = fs.statSync(_file);
 
 		if(!stat) {
 			return;
+		} else if(stat.isDirectory()) {
+			dirs.push(file);
+		} else if(stat.isFile()) {
+			files[path.basename(file, path.extname(file)) == this.options.index ? 'unshift' : 'push'](_file);
 		}
-
-		stat.isDirectory() && dirs.push(file);
-		stat.isFile() && files[path.basename(file, path.extname(file)) == this.options.index ? 'unshift' : 'push'](_file);
 	});
 
-	files.map((file) => {
+	files.forEach((file) => {
 		let ext = path.extname(file);
 		this.options.extensions.indexOf(ext) >= 0 && this.controller(file, path.basename(file, ext), parents);
 	});
 
-	dirs.map((dir) => {
+	dirs.forEach((dir) => {
 		let parentRoute = this.controllers[createControllerId('index', parents)] || '/';
 
-		this.controllers[createControllerId('index', parents.concat([dir]))] = removeExtraBackslash(parentRoute + '/' + dir);
-		this.recurse(parents.concat([dir]));
+		this.controllers[createControllerId('index', parents.concat(dir))] = removeExtraBackslash(parentRoute + '/' + dir);
+		this.recurse(parents.concat(dir));
 	});
 }
 
@@ -139,7 +140,7 @@ autoController.prototype.controller = function(file, name, parents) {
 
 	let router = express.Router();
 	middlewares.all && router.use(middlewares.all);
-	Object.keys(actions).map((action) => {
+	Object.keys(actions).forEach((action) => {
 		let {method, path, post} = actions[action];
 		let callback = controller[action];
 		if(!callback) {

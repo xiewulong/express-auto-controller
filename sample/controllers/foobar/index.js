@@ -4,6 +4,8 @@
  * create: 2017/03/13
  * since: 0.0.1
  */
+'use strict';
+
 module.exports = {
 
 	middlewares: {
