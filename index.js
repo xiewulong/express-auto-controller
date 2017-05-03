@@ -46,10 +46,10 @@ const actions = {
 		path: '/:id',
 		post: '/patch',
 	},
-	destroy: {
+	delete: {
 		method: 'delete',
 		path: '/:id',
-		post: '/destroy',
+		post: '/delete',
 	},
 };
 
@@ -154,13 +154,16 @@ class AutoController {
 			if(action == 'list' && listPath) {
 				path = listPath;
 			}
-			if(post) {
-				method = 'post';
-				path += post;
-			}
+			// if(post !== undefined) {
+			// 	method = 'post';
+			// 	path += post;
+			// }
 
 			middlewares[action] && router.use(path, middlewares[action]);
 			router[method](path, callback);
+			if(post !== undefined) {
+				router.post(path + post, callback);
+			}
 			this.controllers[createControllerId(action, _parents)] = removeExtraBackslash(parentRoute + path);
 		});
 
