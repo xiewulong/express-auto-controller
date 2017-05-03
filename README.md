@@ -55,17 +55,6 @@ module.exports = {
 ```
 
 ```js
-// controllers/index.js
-module.exports = {
-
-	index(req, res, next) {
-		res.send('GET: /');
-	},
-
-};
-```
-
-```js
 // controllers/user.js
 module.exports = {
 
@@ -206,7 +195,7 @@ GET / 200 1.859 ms - 6
 # curl -X GET localhost:3000/user -> GET: /user
 user middleware 1
 user middleware 2
-GET /user 200 12.636 ms - 10
+GET /user 200 1.636 ms - 10
 
 # curl -X GET localhost:3000/user/all -> GET: /user/all
 user middleware 1
