@@ -6,18 +6,12 @@ Express自动路由模块
 
 <details>
 
-* [安装](#安装)
 * [介绍](#介绍)
+* [安装](#安装)
 * [使用](#使用)
 * [License](#license)
 
 </details>
-
-## 安装
-
-```bash
-$ npm i [-S] express-auto-controller
-```
 
 ## 介绍
 
@@ -25,6 +19,12 @@ $ npm i [-S] express-auto-controller
 
 * express的路由定义太自由 真正项目开发中 最好还是需要有一定的约束性规范 以便更好协作和维护
 * express路由的管理需要修改程序和文件两处 如果只增加文件 而不用再在程序逻辑中重复定义的话 效率会提升很多 程序也不会随着项目规模越来越大而越来越臃肿
+
+## 安装
+
+```bash
+$ npm i [-S] express-auto-controller
+```
 
 ## 使用
 
