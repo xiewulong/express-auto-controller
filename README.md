@@ -1,6 +1,6 @@
 # Express auto controller
 
-Express自动路由模块
+Express自动路由控制器模块
 
 ## 目录
 
@@ -32,6 +32,7 @@ require('express-auto-controller');
 
 const app = express();
 
+// 定义所有controller存放目录
 app.autoController(path.join(__dirname, 'controllers'));
 
 app.listen(3000);
