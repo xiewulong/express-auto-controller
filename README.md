@@ -262,6 +262,12 @@ foobar middleware 2
 GET /foobar/1/bar 200 2.252 ms - 20
 ```
 
+文件路径与访问路径对应关系
+
+```bash
+controllers/foo/bar/qux.js => localhost:3000/foo/bar/qux
+```
+
 ## License
 
 MIT - [xiewulong](https://github.com/xiewulong)

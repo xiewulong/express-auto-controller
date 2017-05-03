@@ -12,45 +12,15 @@ const path = require('path');
 const express = require('express');
 
 const actions = {
-	index: {
-		method: 'get',
-		path: '/',
-	},
-	list: {
-		method: 'get',
-		path: '/list',
-	},
-	show: {
-		method: 'get',
-		path: '/:id',
-	},
-	new: {
-		method: 'get',
-		path: '/new',
-	},
-	create: {
-		method: 'post',
-		path: '/',
-	},
-	edit: {
-		method: 'get',
-		path: '/:id/edit',
-	},
-	update: {
-		method: 'put',
-		path: '/:id',
-		post: '',
-	},
-	patch: {
-		method: 'patch',
-		path: '/:id',
-		post: '/patch',
-	},
-	delete: {
-		method: 'delete',
-		path: '/:id',
-		post: '/delete',
-	},
+	index: {method: 'get', path: '/'},
+	list: {method: 'get', path: '/list'},
+	show: {method: 'get', path: '/:id'},
+	new: {method: 'get', path: '/new'},
+	create: {method: 'post', path: '/'},
+	edit: {method: 'get', path: '/:id/edit'},
+	update: {method: 'put', path: '/:id', post: ''},
+	patch: {method: 'patch', path: '/:id', post: '/patch'},
+	delete: {method: 'delete', path: '/:id', post: '/delete'},
 };
 
 const removeExtraBackslash = (str) => {
@@ -154,10 +124,6 @@ class AutoController {
 			if(action == 'list' && listPath) {
 				path = listPath;
 			}
-			// if(post !== undefined) {
-			// 	method = 'post';
-			// 	path += post;
-			// }
 
 			middlewares[action] && router.use(path, middlewares[action]);
 			router[method](path, callback);

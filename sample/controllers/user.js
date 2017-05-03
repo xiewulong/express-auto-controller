@@ -65,8 +65,8 @@ module.exports = {
 		res.send('PATCH: /user/:id | POST: /user/:id/patch');
 	},
 
-	destroy(req, res, next) {
-		res.send('DELETE: /user/:id | POST: /user/:id/destroy');
+	delete(req, res, next) {
+		res.send('DELETE: /user/:id | POST: /user/:id/delete');
 	},
 
 };
