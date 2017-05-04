@@ -32,6 +32,8 @@ $ npm i [-S] express-auto-controller
 
 ```js
 // app.js
+const path = require('path');
+
 const express = require('express');
 require('express-auto-controller');
 
