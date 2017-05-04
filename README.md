@@ -54,15 +54,15 @@ controllers/foobar/foo/bar/baz/qux.js -> localhost:3000/foobar/foo/bar/baz/qux
 * 每个访问路径对应一整套RESTful风格的访问方式
 
 ```
-index	->	GET /						// 默认
-list	->	GET /list					// 列表 全局通过list属性自定义 局部通过listPath属性自定义(优先级最高)
-show	->	GET /:id					// 查询:id
-new		->	GET /new					// 新增数据
-create	->	POST /						// 新增数据的提交
-edit	->	GET /:id/edit				// 编辑:id
-update	->	PUT(POST) /:id				// 整体更新:id的提交 兼容POST
-patch	->	PATCH(POST) /:id(/patch)	// 局部更新:id的提交 兼容POST加后缀'/patch'
-delete	->	DELETE(POST) /:id(/delete)	// 删除数据:id的提交 兼容POST加后缀'/delete'
+index   -> GET /                      // 默认
+list    -> GET /list                  // 列表 全局通过list属性自定义 局部通过listPath属性自定义(优先级最高)
+show    -> GET /:id                   // 查询:id
+new     -> GET /new                   // 新增数据
+create  -> POST /                     // 新增数据的提交
+edit    -> GET /:id/edit              // 编辑:id
+update  -> PUT(POST) /:id             // 整体更新:id的提交 兼容POST
+patch   -> PATCH(POST) /:id(/patch)   // 局部更新:id的提交 兼容POST加后缀'/patch'
+delete  -> DELETE(POST) /:id(/delete) // 删除数据:id的提交 兼容POST加后缀'/delete'
 ```
 
 ## Sample
@@ -71,9 +71,9 @@ delete	->	DELETE(POST) /:id(/delete)	// 删除数据:id的提交 兼容POST加�
 // controllers/index.js
 module.exports = {
 
-	index(req, res, next) {
-		res.send('GET /');
-	},
+  index(req, res, next) {
+    res.send('GET /');
+  },
 
 };
 ```
@@ -82,66 +82,66 @@ module.exports = {
 // controllers/user.js
 module.exports = {
 
-	listPath: '/all',
+  listPath: '/all',
 
-	middlewares: {
-		all: [
-			(req, res, next) => {
-				console.log('user middleware 1');
-				next();
-			},
-			(req, res, next) => {
-				console.log('user middleware 2');
-				next();
-			},
-		],
-		list: [
-			(req, res, next) => {
-				console.log('user list middleware 1');
-				next();
-			},
-			(req, res, next) => {
-				console.log('user list middleware 2');
-				next();
-			},
-		],
-	},
+  middlewares: {
+    all: [
+      (req, res, next) => {
+        console.log('user middleware 1');
+        next();
+      },
+      (req, res, next) => {
+        console.log('user middleware 2');
+        next();
+      },
+    ],
+    list: [
+      (req, res, next) => {
+        console.log('user list middleware 1');
+        next();
+      },
+      (req, res, next) => {
+        console.log('user list middleware 2');
+        next();
+      },
+    ],
+  },
 
-	index(req, res, next) {
-		res.send('GET /user');
-	},
+  index(req, res, next) {
+    res.send('GET /user');
+  },
 
-	list(req, res, next) {
-		res.send('GET /user/all');
-	},
+  list(req, res, next) {
+    res.send('GET /user/all');
+  },
 
-	show(req, res, next) {
-		res.send('GET /user/:id');
-	},
+  show(req, res, next) {
+    res.send('GET /user/:id');
+  },
 
-	new(req, res, next) {
-		res.send('GET /user/new');
-	},
+  new(req, res, next) {
+    res.send('GET /user/new');
+  },
 
-	create(req, res, next) {
-		res.send('POST /user');
-	},
+  create(req, res, next) {
+    res.send('POST /user');
+  },
 
-	edit(req, res, next) {
-		res.send('GET /user/:id/edit');
-	},
+  edit(req, res, next) {
+    res.send('GET /user/:id/edit');
+  },
 
-	update(req, res, next) {
-		res.send('PUT|POST /user/:id');
-	},
+  update(req, res, next) {
+    res.send('PUT|POST /user/:id');
+  },
 
-	patch(req, res, next) {
-		res.send('PATCH /user/:id | POST /user/:id/patch');
-	},
+  patch(req, res, next) {
+    res.send('PATCH /user/:id | POST /user/:id/patch');
+  },
 
-	delete(req, res, next) {
-		res.send('DELETE /user/:id | POST /user/:id/delete');
-	},
+  delete(req, res, next) {
+    res.send('DELETE /user/:id | POST /user/:id/delete');
+  },
 
 };
 ```
@@ -150,36 +150,36 @@ module.exports = {
 // controllers/foobar/index.js
 module.exports = {
 
-	middlewares: {
-		all: [
-			(req, res, next) => {
-				console.log('foobar middleware 1');
-				next();
-			},
-			(req, res, next) => {
-				console.log('foobar middleware 2');
-				next();
-			},
-		],
-		list: [
-			(req, res, next) => {
-				console.log('foobar list middleware 1');
-				next();
-			},
-			(req, res, next) => {
-				console.log('foobar list middleware 2');
-				next();
-			},
-		],
-	},
+  middlewares: {
+    all: [
+      (req, res, next) => {
+        console.log('foobar middleware 1');
+        next();
+      },
+      (req, res, next) => {
+        console.log('foobar middleware 2');
+        next();
+      },
+    ],
+    list: [
+      (req, res, next) => {
+        console.log('foobar list middleware 1');
+        next();
+      },
+      (req, res, next) => {
+        console.log('foobar list middleware 2');
+        next();
+      },
+    ],
+  },
 
-	index(req, res, next) {
-		res.send('GET /foobar');
-	},
+  index(req, res, next) {
+    res.send('GET /foobar');
+  },
 
-	list(req, res, next) {
-		res.send('GET /foobar/list');
-	},
+  list(req, res, next) {
+    res.send('GET /foobar/list');
+  },
 
 };
 ```
@@ -188,11 +188,11 @@ module.exports = {
 // controllers/foobar/foo.js
 module.exports = {
 
-	parent: 'list',
+  parent: 'list',
 
-	index(req, res, next) {
-		res.send('GET /foobar/list/foo');
-	},
+  index(req, res, next) {
+    res.send('GET /foobar/list/foo');
+  },
 
 };
 ```
@@ -201,11 +201,11 @@ module.exports = {
 // controllers/foobar/bar.js
 module.exports = {
 
-	parent: 'show',
+  parent: 'show',
 
-	index(req, res, next) {
-		res.send('GET /foobar/:id/bar');
-	},
+  index(req, res, next) {
+    res.send('GET /foobar/:id/bar');
+  },
 
 };
 ```
