@@ -51,7 +51,7 @@ app.listen(3000);
 controllers/foobar/foo/bar/baz/qux.js -> localhost:3000/foobar/foo/bar/baz/qux
 ```
 
-* 每个访问路径对应一整套RESTful风格的访问方式
+* 每个访问路径对应一整套RESTful风格的请求方式
 
 ```
 index   -> GET /                      // 默认
