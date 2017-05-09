@@ -7,16 +7,18 @@
 'use strict';
 
 const path = require('path');
-const express = require('express');
-const logger = require('morgan');
 
-require('../');
+const logger = require('morgan');
+const express = require('express');
+
+const autoController = require('../');
 
 const app = express();
 
 app.use(logger('dev'));
 
 app.autoController(path.join(__dirname, 'controllers'));
+// autoController(app, path.join(__dirname, 'controllers'));
 
 app.use(function(req, res, next) {
   res.status(404).send('404');

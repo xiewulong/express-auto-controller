@@ -1,6 +1,6 @@
 {
   "name": "express-auto-controller",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "express auto controller",
   "main": "index.js",
   "scripts": {
