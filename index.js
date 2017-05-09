@@ -40,7 +40,7 @@ const createControllerId = (action, paths = []) => {
 
 class AutoController {
 
-	constructor(dir, app, options = {}) {
+	constructor(app, dir, options = {}) {
 		if(!dir || !app) {
 			console.error('dir and app are required');
 			return;
@@ -58,6 +58,8 @@ class AutoController {
 		this.controllers = {};
 
 		this.recurse();
+
+		return this.app;
 	}
 
 	recurse(parents = []) {
@@ -138,8 +140,10 @@ class AutoController {
 
 }
 
-express.application.autoController = function(dir, options = {}) {
-	new AutoController(dir, this, options);
+express.application.autoController = (dir, options = {}) => {
+	return new AutoController(this, dir, options);
 };
 
-module.exports = AutoController;
+module.exports = (app, dir, options = {}) => {
+	return new AutoController(app, dir, options);
+};
