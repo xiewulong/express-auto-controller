@@ -35,12 +35,15 @@ $ npm i [-S] express-auto-controller
 const path = require('path');
 
 const express = require('express');
-require('express-auto-controller');
+const autoController = require('express-auto-controller');
 
 const app = express();
 
 // 定义所有controller存放目录
 app.autoController(path.join(__dirname, 'controllers'));
+
+// 另一种运行方式
+// autoController(app, path.join(__dirname, 'controllers'));
 
 app.listen(3000);
 ```
