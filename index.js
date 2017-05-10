@@ -38,6 +38,13 @@ const createControllerId = (action, paths = []) => {
 	return [action].concat(paths).join('_');
 };
 
+const defaultOptions = {
+	extensions: ['.js'],
+	index: 'index',
+	list: '',
+	post: true,
+};
+
 class AutoController {
 
 	constructor(app, dir, options = {}) {
@@ -46,15 +53,10 @@ class AutoController {
 			return;
 		}
 
-		this.options = Object.assign({
-			extensions: ['.js'],
-			index: 'index',
-			list: '',
-			post: false,
-		}, options);
-
 		this.app = app;
 		this.dir = dir;
+		this.options = Object.assign(defaultOptions, options);
+
 		this.controllers = {};
 
 		this.recurse();
@@ -129,7 +131,7 @@ class AutoController {
 
 			middlewares[action] && router.use(path, middlewares[action]);
 			router[method](path, callback);
-			if(post !== undefined) {
+			if(post !== undefined && this.options.post) {
 				router.post(path + post, callback);
 			}
 			this.controllers[createControllerId(action, _parents)] = removeExtraBackslash(parentRoute + path);
