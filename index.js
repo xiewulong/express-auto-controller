@@ -8,7 +8,6 @@
 
 const fs = require('fs');
 const path = require('path');
-
 const express = require('express');
 
 const actions = {
@@ -55,8 +54,7 @@ class AutoController {
 
 		this.app = app;
 		this.dir = dir;
-		this.options = Object.assign(defaultOptions, options);
-
+		this.options = Object.assign({}, defaultOptions, options);
 		this.controllers = {};
 
 		this.recurse();

@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/xiewulong/express-auto-controller#readme",
   "dependencies": {
-    "express": "^4.15.2",
-    "morgan": "^1.8.1"
+    "express": "^4.15.2"
   }
 }

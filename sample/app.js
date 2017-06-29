@@ -7,10 +7,8 @@
 'use strict';
 
 const path = require('path');
-
 const logger = require('morgan');
 const express = require('express');
-
 const autoController = require('../');
 
 const app = express();

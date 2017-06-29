@@ -6,38 +6,46 @@ Express自动路由模块
 
 <details>
 
-* [介绍](#介绍)
-* [安装](#安装)
-* [使用](#使用)
-* [约束定义](#约束定义)
-* [Sample](#sample)
-* [License](#license)
+* [概览](#Overview)
+* [安装](#Install)
+* [使用](#Useage)
+* [规范](#Standard)
+* [范例](#Sample)
+* [License](#License)
 
 </details>
 
-## 介绍
+## Overview
+
+概览
 
 基于express封装一层路由控制 解决以下问题
 
 * express的路由定义太自由 真正项目开发中 最好还是需要有一定的约束性规范 以便更好协作和维护
 * express路由的管理需要修改程序和文件两处 如果只增加文件 而不用再在程序逻辑中重复定义的话 效率会提升很多 程序也不会随着项目规模越来越大而越来越臃肿
 
-## 安装
+## Install
+
+安装
 
 ```bash
 $ npm i [-S] express-auto-controller
 ```
 
-## 使用
+## Useage
+
+使用
 
 ```js
 // app.js
 const path = require('path');
-
+const logger = require('morgan');
 const express = require('express');
 const autoController = require('express-auto-controller');
 
 const app = express();
+
+app.use(logger('dev'));
 
 // 定义所有controller存放目录
 app.autoController(path.join(__dirname, 'controllers'));
@@ -48,7 +56,9 @@ app.autoController(path.join(__dirname, 'controllers'));
 app.listen(3000);
 ```
 
-## 约束定义
+## Standard
+
+规范
 
 * 工程文件路径即web访问路径
 
@@ -71,6 +81,8 @@ delete  -> DELETE(POST) /:id(/delete) // 删除数据:id的提交 兼容POST加�
 ```
 
 ## Sample
+
+样例
 
 ```js
 // controllers/index.js
