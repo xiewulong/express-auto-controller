@@ -6,12 +6,12 @@ Express自动路由模块
 
 <details>
 
-* [概览](#Overview)
-* [安装](#Install)
-* [使用](#Useage)
-* [规范](#Standard)
-* [范例](#Sample)
-* [License](#License)
+* [概览](#overview)
+* [安装](#install)
+* [使用](#useage)
+* [规范](#standard)
+* [范例](#sample)
+* [License](#license)
 
 </details>
 
